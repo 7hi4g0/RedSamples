@@ -7,7 +7,7 @@ Red [
 do [
 
 towers: make object! [
-	A:	[3 2 1]
+	A:	[5 4 3 2 1]
 	B:	[]
 	C:	[]
 ]
@@ -44,7 +44,7 @@ difference: func [right [series!] left [series!] /local diff][
 
 show: has [pegs disks lines diskChar pegChar disk height size line char] [
 	pegs: values-of towers
-	lines: []
+	lines: copy []
 	disks: 0
 	diskChar: #"@"
 	pegChar: #"|"
@@ -71,12 +71,15 @@ show: has [pegs disks lines diskChar pegChar disk height size line char] [
 			insert/dup
 			insert/dup
 				tail line
-				space disks - size
+				space disks - disk
 				char size
-				space disks - size + 1
+				space disks - disk + 1
+
+			;probe line
 		]
 
 		insert lines reduce [line lf]
+		;probe lines
 	]
 
 	print lines
@@ -84,6 +87,6 @@ show: has [pegs disks lines diskChar pegChar disk height size line char] [
 
 show
 
-move 3 'A 'C
+move 5 'A 'C
 
 ]
