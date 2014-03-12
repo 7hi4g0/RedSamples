@@ -45,7 +45,7 @@ difference: func [right [series!] left [series!] /local diff][
 show: has [pegs disks lines diskChar pegChar disk height size line char] [
 	pegs: values-of towers
 	lines: copy []
-	disks: 0
+	disks: 1
 	diskChar: #"@"
 	pegChar: #"|"
 
@@ -61,19 +61,19 @@ show: has [pegs disks lines diskChar pegChar disk height size line char] [
 				disk: pick peg height [
 					char: diskChar
 				]
-				disk: 1 [
+				disk: 0 [
 					char: pegChar
 				]
 			]
 
-			size: disk * 2 - 1
+			size: disk * 2 + 1
 			insert/dup
 			insert/dup
 			insert/dup
 				tail line
 				space disks - disk
 				char size
-				space disks - disk + 1
+				space disks - disk
 
 			;probe line
 		]
