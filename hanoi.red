@@ -74,12 +74,9 @@ show: has [pegs disks lines diskChar pegChar disk height size line char] [
 				space disks - disk
 				char size
 				space disks - disk
-
-			;probe line
 		]
 
 		insert lines reduce [line lf]
-		;probe lines
 	]
 
 	print lines
